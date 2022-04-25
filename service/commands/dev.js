@@ -24,19 +24,19 @@ const compiler = webpack(devWebpackConfig)
 const server = new WebpackDevServer(devServerOptions, compiler)
 
 compiler.hooks.done.tap('serve', (stats) => {
-  if (stats.hasErrors()) {
-    return
-  }
-  console.log()
-  console.log()
-  console.log(`App running at:`)
-  console.log(`  - Local:   ${chalk.cyan(`${protocol}://${host}:${port}`)}`)
-  console.log(`  - Network: ${chalk.cyan(`${protocol}://${getLocalIP()}:${port}`)}`)
-  console.log()
+	if (stats.hasErrors()) {
+		return
+	}
+	console.log()
+	console.log()
+	console.log(`App running at:`)
+	console.log(`  - Local:   ${chalk.cyan(`${protocol}://${host}:${port}`)}`)
+	console.log(`  - Network: ${chalk.cyan(`${protocol}://${getLocalIP()}:${port}`)}`)
+	console.log()
 })
 
 server.start(port, host, (err) => {
-  if (err) {
-    process.exit(0)
-  }
+	if (err) {
+		process.exit(0)
+	}
 })
